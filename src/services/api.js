@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-	baseURL: process.env.apiBaseURL || "https://labs-be-the-hero-backend.herokuapp.com"
+	baseURL: "http://localhost:3333",
+	//baseURL: "https://pipocodotrovao-backend.herokuapp.com",
 });
 
 export default api;
