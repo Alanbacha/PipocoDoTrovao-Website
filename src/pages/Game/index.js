@@ -1,54 +1,121 @@
 import React, { useState, useEffect } from "react";
-//import { Link, useHistory } from "react-router-dom";
-//import { FiPower, FiTrash2 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 
 import "./styles.css";
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logo.png";
+
+import flagBrazilImg from "../../assets/flag-brazil.svg";
+import flagFranceImg from "../../assets/flag-france.svg";
+import flagUsaImg from "../../assets/flag-usa.svg";
+
+const math = require("mathjs");
 
 export default function Game() {
-	//const history = useHistory();
+	const suits = ["hearts", "spades", "clubs", "diamonds"];
 
 	const [cards, setCards] = useState([]);
+	const [cardName, setCardName] = useState("");
+	const [suitName, setSuitName] = useState("");
+	const [language, setLanguage] = useState("pt-br");
 
 	useEffect(() => {
 		loadCards();
-	});
+	}, [null]);
 
 	function loadCards() {
 		api.get("cards").then((res) => {
+			console.log(0);
 			setCards(res.data);
+
+			const card = res.data[math.randomInt(res.data.length)];
+			getCardName(card);
 		});
+	}
+
+	function getCardName(card) {
+		console.log(1);
+		setCardName(card.name);
+
+		setSuitName(getSuitRandom());
+	}
+
+	function handleNewCard() {
+		console.log(2);
+		const card = cards[math.randomInt(cards.length)];
+		getCardName(card);
+	}
+
+	function getSuitRandom() {
+		return suits[math.randomInt(suits.length)];
+	}
+
+	function handleChangeLanguage(value) {
+		setLanguage(value);
 	}
 
 	return (
 		<div className="container">
 			<header>
 				<img src={logoImg} alt="Pipoco do Trovao" />
+				<Link className="link" to="/about">
+					Sobre {suitName}
+				</Link>
 			</header>
 
-			<ul>
-				{cards.map((card) => (
-					<li key={card.id}>
-						<strong>Name:</strong>
-						<p>{card.name}</p>
+			<div className={`content ${language}`}>
+				<section>
+					<ul className={`playing-cards playing-cards-${cardName} cards-suit-${suitName}`}>
+						{cards.map((card) => (
+							<li key={card.id} className={`playing-card playing-card-${card.name}`}>
+								<div className="playing-card-container">
+									{suits.map((name) => (
+										<button key={`${card.id}-${name}`} className={`card-suit card-suit-${name}`} onClick={handleNewCard}>
+											handleNewCard-{name}
+										</button>
+									))}
+								</div>
 
-						<strong>Descrição:</strong>
-						<p>{card.description_PtBr}</p>
+								<ul className="description">
+									<li className="language pt-br">
+										<strong>Descrição</strong>
+										<p>{card.description_PtBr} dsakljdsaljksdajksda ksaldlk asdjlakjd lkj asdkjl klasd klj asdkl jasd</p>
+									</li>
 
-						<strong>Description:</strong>
-						<p>{card.description_EnCa}</p>
+									<li className="language en-ca">
+										<strong>Description</strong>
+										<p>{card.description_EnCa}</p>
+									</li>
 
-						<strong>Description:</strong>
-						<p>{card.description_FrCa}</p>
+									<li className="language fr-ca">
+										<strong>Description</strong>
+										<p>{card.description_FrCa}</p>
+									</li>
+								</ul>
+							</li>
+						))}
+					</ul>
 
-						{/* <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
-							<FiTrash2 size={20} color="#a8a8b3" />
-						</button> */}
-					</li>
-				))}
-			</ul>
+					<ul className="languages">
+						<li className="lang-pt-br">
+							<button type="button" className="button" onClick={() => handleChangeLanguage("pt-br")}>
+								<img height={25} src={flagBrazilImg} alt="Português" />
+							</button>
+						</li>
+						<li className="lang-en-ca">
+							<button type="button" className="button" onClick={() => handleChangeLanguage("en-ca")}>
+								<img height={25} src={flagUsaImg} alt="English" />
+							</button>
+						</li>
+						<li className="lang-fr-ca">
+							<button type="button" className="button" onClick={() => handleChangeLanguage("fr-ca")}>
+								<img height={25} src={flagFranceImg} alt="Français" />
+							</button>
+						</li>
+					</ul>
+				</section>
+			</div>
 		</div>
 	);
 }

@@ -1,38 +1,88 @@
-.container {
+.playing-cards {
+	max-height: calc(100% - 35px);
+}
+.playing-cards .playing-card {
+	display: none;
+	flex-direction: column;
+	height: 100%;
 	width: 100%;
-	max-width: 1120px;
-	height: 100vh;
-	margin: 0 auto;
+	margin: 20px auto;
+}
+.playing-cards .card-suit {
+	display: none;
+}
 
+.playing-cards .playing-card .playing-card-container {
 	display: flex;
+	height: 100%;
+	width: 100%;
+	max-height: calc(100% - 100px);
+	justify-content: center;
 	align-items: center;
-	justify-content: space-between;
+	border-bottom: solid 1px #ccc;
+	padding: 10px;
+	background-color: #636c92;
 }
 
-.container .content {
-	width: 100%;
-	padding: 96px;
-	background: #f0f0f5;
-	box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
-
+.playing-cards .playing-card .description {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	height: 100%;
+	max-height: 100px;
+	flex-direction: column;
+	background-color: #f0f0f0;
 }
 
-.container .content section {
+.playing-cards .playing-card .description li {
 	width: 100%;
-	max-width: 380px;
-
-	margin-right: 30px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	align-items: center;
+	justify-content: start;
 }
 
-.container .content section form {
-	margin-top: 100px;
+.playing-cards .playing-card .description .language {
+	display: none;
 }
 
-.container .content section form h1 {
-	font-size: 32px;
-	margin-bottom: 32px;
+.playing-cards .playing-card .description li strong {
+	font-size: 12px;
+}
+.playing-cards .playing-card .description li p {
+	font-size: 12px;
+	margin-top: 10px;
+	overflow: auto;
+}
+
+.languages {
+	max-height: 35px;
+}
+
+.languages li {
+	opacity: 0.5;
+}
+
+.playing-cards-A .playing-card-A,
+.playing-cards-2 .playing-card-2,
+.playing-cards-3 .playing-card-3,
+.playing-cards-4 .playing-card-4,
+.playing-cards-5 .playing-card-5,
+.playing-cards-6 .playing-card-6,
+.playing-cards-7 .playing-card-7,
+.playing-cards-8 .playing-card-8,
+.playing-cards-9 .playing-card-9,
+.playing-cards-10 .playing-card-10,
+.playing-cards-J .playing-card-J,
+.playing-cards-Q .playing-card-Q,
+.playing-cards-K .playing-card-K,
+.playing-cards-Joker .playing-card-Joker {
+	display: flex;
+}
+
+.cards-suit-hearts .card-suit-hearts,
+.cards-suit-spades .card-suit-spades,
+.cards-suit-clubs .card-suit-clubs,
+.cards-suit-diamonds .card-suit-diamonds {
+	display: flex;
 }
