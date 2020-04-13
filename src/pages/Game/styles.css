@@ -8,9 +8,6 @@
 	width: 100%;
 	margin: 20px auto;
 }
-.playing-cards .card-suit {
-	display: none;
-}
 
 .playing-cards .playing-card .playing-card-container {
 	display: flex;
@@ -20,8 +17,12 @@
 	justify-content: center;
 	align-items: center;
 	border-bottom: solid 1px #ccc;
-	padding: 10px;
+	padding: 20px;
 	background-color: #636c92;
+}
+
+.playing-cards .playing-card .playing-card-container img {
+	height: 100%;
 }
 
 .playing-cards .playing-card .description {
@@ -64,12 +65,5 @@
 .playing-cards-Q .playing-card-Q,
 .playing-cards-K .playing-card-K,
 .playing-cards-Joker .playing-card-Joker {
-	display: flex;
-}
-
-.cards-suit-hearts .card-suit-hearts,
-.cards-suit-spades .card-suit-spades,
-.cards-suit-clubs .card-suit-clubs,
-.cards-suit-diamonds .card-suit-diamonds {
 	display: flex;
 }

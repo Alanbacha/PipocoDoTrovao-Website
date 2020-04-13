@@ -6,9 +6,9 @@ import api from "../../services/api";
 import "./styles.css";
 import logoImg from "../../assets/logo.png";
 
-import flagBrazilImg from "../../assets/flag-brazil.svg";
-import flagFranceImg from "../../assets/flag-france.svg";
-import flagUsaImg from "../../assets/flag-usa.svg";
+import flagBrazilImg from "../../assets/flags/flag-brazil.svg";
+import flagFranceImg from "../../assets/flags/flag-france.svg";
+import flagUsaImg from "../../assets/flags/flag-usa.svg";
 
 const math = require("mathjs");
 
@@ -16,8 +16,8 @@ export default function Game() {
 	const suits = ["hearts", "spades", "clubs", "diamonds"];
 
 	const [cards, setCards] = useState([]);
-	const [cardName, setCardName] = useState("");
-	const [suitName, setSuitName] = useState("");
+	const [cardName, setCardName] = useState("A");
+	const [suitName, setSuitName] = useState("hearts");
 	const [language, setLanguage] = useState("pt-br");
 
 	useEffect(() => {
@@ -26,7 +26,6 @@ export default function Game() {
 
 	function loadCards() {
 		api.get("cards").then((res) => {
-			console.log(0);
 			setCards(res.data);
 
 			const card = res.data[math.randomInt(res.data.length)];
@@ -35,14 +34,12 @@ export default function Game() {
 	}
 
 	function getCardName(card) {
-		console.log(1);
 		setCardName(card.name);
 
 		setSuitName(getSuitRandom());
 	}
 
 	function handleNewCard() {
-		console.log(2);
 		const card = cards[math.randomInt(cards.length)];
 		getCardName(card);
 	}
@@ -72,11 +69,7 @@ export default function Game() {
 						{cards.map((card) => (
 							<li key={card.id} className={`playing-card playing-card-${card.name}`}>
 								<div className="playing-card-container">
-									{suits.map((name) => (
-										<button key={`${card.id}-${name}`} className={`card-suit card-suit-${name}`} onClick={handleNewCard}>
-											handleNewCard-{name}
-										</button>
-									))}
+									<img className="button" onClick={handleNewCard} src={require(`../../assets/cards/${card.name.toUpperCase()}${suitName.substring(0, 1).toUpperCase()}.png`)} alt={`${card.name} of ${suitName.toLowerCase()}`} />
 								</div>
 
 								<ul className="description">

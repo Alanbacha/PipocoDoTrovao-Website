@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import logoImg from "../../assets/logo.png";
 
-import flagBrazilImg from "../../assets/flag-brazil.svg";
-import flagFranceImg from "../../assets/flag-france.svg";
-import flagUsaImg from "../../assets/flag-usa.svg";
+import flagBrazilImg from "../../assets/flags/flag-brazil.svg";
+import flagFranceImg from "../../assets/flags/flag-france.svg";
+import flagUsaImg from "../../assets/flags/flag-usa.svg";
 
 export default function Game() {
 	const [language, setLanguage] = useState("pt-br");
