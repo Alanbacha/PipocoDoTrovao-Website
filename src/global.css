@@ -115,6 +115,18 @@ header img {
 	flex-direction: column;
 }
 
+.languages {
+	max-height: 35px;
+}
+
+.languages li {
+	opacity: 0.5;
+}
+
+.language {
+	display: none;
+}
+
 .pt-br .language.pt-br,
 .en-ca .language.en-ca,
 .fr-ca .language.fr-ca {

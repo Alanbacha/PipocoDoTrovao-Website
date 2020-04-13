@@ -35,15 +35,10 @@
 .playing-cards .playing-card .description li {
 	width: 100%;
 	height: 100%;
-	display: flex;
 	flex-direction: column;
 	padding: 10px;
 	align-items: center;
 	justify-content: start;
-}
-
-.playing-cards .playing-card .description .language {
-	display: none;
 }
 
 .playing-cards .playing-card .description li strong {
@@ -53,14 +48,6 @@
 	font-size: 12px;
 	margin-top: 10px;
 	overflow: auto;
-}
-
-.languages {
-	max-height: 35px;
-}
-
-.languages li {
-	opacity: 0.5;
 }
 
 .playing-cards-A .playing-card-A,

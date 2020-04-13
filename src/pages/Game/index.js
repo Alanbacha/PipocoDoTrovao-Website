@@ -22,7 +22,7 @@ export default function Game() {
 
 	useEffect(() => {
 		loadCards();
-	}, [null]);
+	}, []);
 
 	function loadCards() {
 		api.get("cards").then((res) => {
@@ -56,15 +56,17 @@ export default function Game() {
 	}
 
 	return (
-		<div className="container">
+		<div className={`container ${language}`}>
 			<header>
 				<img src={logoImg} alt="Pipoco do Trovao" />
 				<Link className="link" to="/about">
-					Sobre {suitName}
+					<span className="language pt-br">Sobre</span>
+					<span className="language en-ca">About</span>
+					<span className="language fr-ca">À propos</span>
 				</Link>
 			</header>
 
-			<div className={`content ${language}`}>
+			<div className="content">
 				<section>
 					<ul className={`playing-cards playing-cards-${cardName} cards-suit-${suitName}`}>
 						{cards.map((card) => (
