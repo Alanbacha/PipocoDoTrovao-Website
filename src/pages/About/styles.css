@@ -1,5 +1,6 @@
 .about-content {
 	max-height: calc(100% - 40px);
+	background-color: #f0f0f0;
 }
 
 .about-content li {
