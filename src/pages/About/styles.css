@@ -1,5 +1,5 @@
 .about-content {
-	max-height: calc(100% - 35px);
+	max-height: calc(100% - 40px);
 }
 
 .about-content li {
@@ -12,10 +12,10 @@
 }
 
 .about-content li strong {
-	font-size: 12px;
+	font-size: 16px;
 }
 .about-content li p {
-	font-size: 12px;
+	font-size: 16px;
 	margin-top: 10px;
 	overflow: auto;
 }

@@ -18,7 +18,7 @@ export default function Game() {
 	const [cards, setCards] = useState([]);
 	const [cardName, setCardName] = useState("A");
 	const [suitName, setSuitName] = useState("hearts");
-	const [language, setLanguage] = useState("pt-br");
+	const [language, setLanguage] = useState(localStorage.getItem("language") || "pt-br");
 
 	useEffect(() => {
 		loadCards();
@@ -50,6 +50,7 @@ export default function Game() {
 
 	function handleChangeLanguage(value) {
 		setLanguage(value);
+		localStorage.setItem("language", value);
 	}
 
 	return (

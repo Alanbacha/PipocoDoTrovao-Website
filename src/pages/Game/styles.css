@@ -1,23 +1,32 @@
 .playing-cards {
-	max-height: calc(100% - 35px);
+	max-height: calc(100% - 40px);
 }
 .playing-cards .playing-card {
 	display: none;
 	flex-direction: column;
 	height: 100%;
 	width: 100%;
-	margin: 20px auto;
+}
+
+@media (orientation: landscape) {
+	.playing-cards .playing-card {
+		flex-direction: row;
+	}
+	.playing-cards .playing-card .playing-card-container {
+		max-height: unset !important;
+		width: auto !important;
+	}
 }
 
 .playing-cards .playing-card .playing-card-container {
 	display: flex;
 	height: 100%;
+	max-height: 50%;
 	width: 100%;
-	max-height: calc(100% - 100px);
 	justify-content: center;
 	align-items: center;
 	border-bottom: solid 1px #ccc;
-	padding: 20px;
+	padding: 10px;
 	background-color: #636c92;
 }
 
@@ -28,7 +37,6 @@
 .playing-cards .playing-card .description {
 	display: flex;
 	height: 100%;
-	max-height: 100px;
 	flex-direction: column;
 	background-color: #f0f0f0;
 }
@@ -43,10 +51,10 @@
 }
 
 .playing-cards .playing-card .description li strong {
-	font-size: 12px;
+	font-size: 16px;
 }
 .playing-cards .playing-card .description li p {
-	font-size: 12px;
+	font-size: 16px;
 	margin-top: 10px;
 	overflow: auto;
 }

@@ -9,10 +9,11 @@ import flagFranceImg from "../../assets/flags/flag-france.svg";
 import flagUsaImg from "../../assets/flags/flag-usa.svg";
 
 export default function Game() {
-	const [language, setLanguage] = useState("pt-br");
+	const [language, setLanguage] = useState(localStorage.getItem("language") || "pt-br");
 
 	function handleChangeLanguage(value) {
 		setLanguage(value);
+		localStorage.setItem("language", value);
 	}
 
 	return (
