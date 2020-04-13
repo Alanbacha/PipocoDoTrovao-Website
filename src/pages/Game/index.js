@@ -80,7 +80,7 @@ export default function Game() {
 								<ul className="description">
 									<li className="language pt-br">
 										<strong>Descrição</strong>
-										<p>{card.description_PtBr} dsakljdsaljksdajksda ksaldlk asdjlakjd lkj asdkjl klasd klj asdkl jasd</p>
+										<p>{card.description_PtBr}</p>
 									</li>
 
 									<li className="language en-ca">
